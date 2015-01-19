@@ -36,16 +36,17 @@ namespace :deploy do
 	task :setup_config, roles: :app do
 		sudo "mkdir -p #{shared_path}/config"
 		sudo "mkdir -p #{shared_path}/files"
-
+		#put File.read("config/database.yml"), "#{shared_path}/config/database.yml"
 	end
 	after "deploy:setup", "deploy:setup_config"
 
 	task :symlink_config, roles: :app do
+		puts "symlink_config"
 		run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
 		run "ln -nsf #{shared_path}/files #{release_path}/files"
-		run "mkdir -p tmp tmp/pdf public/plugin_assets"
-		sudo "chown -R deployer files tmp public/plugin_assets"
-		sudo "chmod -R 755 files tmp public/plugin_assets"
+#		run "mkdir -p tmp tmp/pdf public/plugin_assets"
+#		sudo "chown -R deployer files tmp public/plugin_assets"
+#		sudo "chmod -R 755 files tmp public/plugin_assets"
 	end
 	after "deploy:finalize_update", "deploy:symlink_config"
 

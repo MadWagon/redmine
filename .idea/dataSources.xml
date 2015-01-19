@@ -4,8 +4,9 @@
     <data-source source="LOCAL" name="Rails redmine: production" uuid="7b93a61e-eb09-42be-b775-7acbe00f4f37">
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://127.0.0.1/redmine</jdbc-url>
-      <user-name>root</user-name>
+      <jdbc-url>jdbc:mysql://redmine/redmine</jdbc-url>
+      <user-name>redmine</user-name>
+      <user-password>dfd8df9edfcedf92dfc7dfcfdf9c</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails redmine: development" uuid="2061458e-10f1-4876-b6fd-aea6962206c4">
