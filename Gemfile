@@ -52,6 +52,7 @@ end
 require 'erb'
 require 'yaml'
 
+#mysql adapter
 gem "mysql2", "~> 0.3.11", :platforms => [:mri, :mingw]
 gem "activerecord-jdbcmysql-adapter", :platforms => :jruby
 
