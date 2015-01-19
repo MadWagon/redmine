@@ -36,7 +36,7 @@ namespace :deploy do
 	task :setup_config, roles: :app do
 		sudo "mkdir -p #{shared_path}/config"
 		sudo "mkdir -p #{shared_path}/files"
-		bundle instaput File.read("config/database.yml"), "#{shared_path}/config/database.yml"
+		#put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
 	end
 	after "deploy:setup", "deploy:setup_config"
 
