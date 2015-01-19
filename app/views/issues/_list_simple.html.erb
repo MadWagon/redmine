@@ -15,7 +15,7 @@
         <%= link_to(issue.id, issue_path(issue)) %>
       </td>
       <td class="project"><%= link_to_project(issue.project) %></td>
-      <td class="tracker"><%= issue.tracker %></td>
+      <td class="tracker <%= issue.tracker %>"><%= issue.tracker %></td>
       <td class="subject">
         <%= link_to(issue.subject.truncate(60), issue_path(issue)) %> (<%= issue.status %>)
       </td>

@@ -11,6 +11,9 @@ gem "rbpdf", "~> 1.18.4"
 
 gem "i18n", "~> 0.6.11"
 
+# Deploy with Capistrano
+gem 'capistrano', "~> 2.14.2"
+
 # Optional gem for LDAP authentication
 group :ldap do
   gem "net-ldap", "~> 0.3.1"

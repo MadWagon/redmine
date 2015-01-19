@@ -1195,3 +1195,26 @@ h2 img { vertical-align:middle; }
   height:1px;
   overflow:hidden;
 }
+
+
+/* CSS for Dagoba */
+
+table.list .tracker.Bug {
+	background-color: indianred;
+}
+table.list .tracker.Feature {
+	background-color: lightseagreen;
+}
+table.list .tracker.Support {
+	background-color: blueviolet;
+}
+.tag-label {
+	background-color: black;
+	padding: 2px;
+	border-radius: 3px;
+}
+.tag-label a {
+	border-radius: 3px;
+	color: white;
+	text-decoration: none;
+}

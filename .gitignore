@@ -12,6 +12,7 @@
 /db/*.db
 /db/*.sqlite3
 /db/schema.rb
+/files
 /files/*
 /lib/redmine/scm/adapters/mercurial/redminehelper.pyc
 /lib/redmine/scm/adapters/mercurial/redminehelper.pyo
