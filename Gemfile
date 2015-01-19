@@ -52,38 +52,10 @@ end
 require 'erb'
 require 'yaml'
 
-database_file = File.join(File.dirname(__FILE__), "config/database.example.yml")
-if File.exist?(database_file)
-  database_config = YAML::load(ERB.new(IO.read(database_file)).result)
-  adapters = database_config.values.map {|c| c['adapter']}.compact.uniq
 
-  if adapters.any?
-    adapters.each do |adapter|
-      case adapter
-      when 'mysql2'
+gem "mysql", "~> 2.8.1", :platforms => [:mri, :mingw]
+gem "activerecord-jdbcmysql-adapter", :platforms => :jruby
 
-      when 'mysql'
-        gem "mysql", "~> 2.8.1", :platforms => [:mri, :mingw]
-        gem "activerecord-jdbcmysql-adapter", :platforms => :jruby
-      when /postgresql/
-        gem "pg", "~> 0.17.1", :platforms => [:mri, :mingw]
-        gem "activerecord-jdbcpostgresql-adapter", :platforms => :jruby
-      when /sqlite3/
-        gem "sqlite3", :platforms => [:mri, :mingw]
-        gem "activerecord-jdbcsqlite3-adapter", "1.3.11", :platforms => :jruby
-      when /sqlserver/
-        gem "tiny_tds", "~> 0.6.2", :platforms => [:mri, :mingw]
-        gem "activerecord-sqlserver-adapter", :platforms => [:mri, :mingw]
-      else
-        warn("Unknown database adapter `#{adapter}` found in config/database.yml, use Gemfile.local to load your own database gems")
-      end
-    end
-  else
-    warn("No adapter found in config/database.yml, please configure it first")
-  end
-else
-  warn("Please configure your config/database.yml first")
-end
 
 group :development do
   gem "rdoc", ">= 2.4.2"
@@ -113,6 +85,7 @@ end
   #instance_eval File.read(file), file
 #end
 
+# Better add gem for plugin manually since capistrano
 gem "redmine_acts_as_taggable_on", "~> 1.0"
 gem "rubocop", "~> 0.26.1"
 
