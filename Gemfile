@@ -107,8 +107,12 @@ if File.exists?(local_gemfile)
 end
 
 # Load plugins' Gemfiles
-Dir.glob File.expand_path("../plugins/*/{Gemfile,PluginGemfile}", __FILE__) do |file|
-  puts "Loading #{file} ..." if $DEBUG # `ruby -d` or `bundle -v`
+#Dir.glob File.expand_path("../plugins/*/{Gemfile,PluginGemfile}", __FILE__) do |file|
+ # puts "Loading #{file} ..." if $DEBUG # `ruby -d` or `bundle -v`
   #TODO: switch to "eval_gemfile file" when bundler >= 1.2.0 will be required (rails 4)
-  instance_eval File.read(file), file
-end
+  #instance_eval File.read(file), file
+#end
+
+gem "redmine_acts_as_taggable_on", "~> 1.0"
+gem "rubocop", "~> 0.26.1"
+
