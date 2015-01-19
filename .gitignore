@@ -40,3 +40,8 @@
 /.bundle
 /Gemfile.local
 
+# RubyMine
+.idea
+/.idea
+/.idea/*
+
