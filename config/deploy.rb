@@ -9,6 +9,7 @@ set :ssh_options, {:forward_agent => true}
 
 server "europe1.dagoba.co", :web, :app, :db, primary: true
 set :user, "deployer"
+set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 set :branch, '2.6-stable'
