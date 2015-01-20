@@ -53,9 +53,10 @@ require 'erb'
 require 'yaml'
 
 
-gem "mysql", "~> 2.8.1", :platforms => [:mri, :mingw]
-gem "activerecord-jdbcmysql-adapter", :platforms => :jruby
-
+#gem "mysql", "~> 2.8.1", :platforms => [:mri, :mingw]
+gem 'mysql2'
+#gem "activerecord-jdbcmysql-adapter", :platforms => :jruby
+gem  "activerecord-mysql2-adapter"
 
 group :development do
   gem "rdoc", ">= 2.4.2"
