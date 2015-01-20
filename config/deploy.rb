@@ -36,13 +36,15 @@ namespace :deploy do
 	task :setup_config, roles: :app do
 		sudo "mkdir -p #{shared_path}/config"
 		sudo "mkdir -p #{shared_path}/files"
-		#put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
+		sudo "mkdir -p #{shared_path}/config/initializers"
 	end
 	after "deploy:setup", "deploy:setup_config"
 
 	task :symlink_config, roles: :app do
 		puts "symlink_config"
 		run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+		#run "touch #{release_path}/config/initializer/secret_token.rb"
+		run "ln -nfs #{shared_path}/config/initializers/secret_token.rb #{release_path}/config/initializers/secret_token.rb"
 		run "ln -nsf #{shared_path}/files #{release_path}/files"
 #		run "mkdir -p tmp tmp/pdf public/plugin_assets"
 #		sudo "chown -R deployer files tmp public/plugin_assets"
